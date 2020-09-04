@@ -1,8 +1,6 @@
 //// Get_Eggs.c ////
 
-#include "Command.h"
-
-static const command get_eggs[] = {
+const command get_eggs[] = {
 	// Face and activate the lady
 	{ LEFT,       5 },
 	{ NOTHING,    5 },
