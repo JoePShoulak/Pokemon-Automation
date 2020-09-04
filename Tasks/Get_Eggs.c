@@ -1,55 +1,35 @@
-//// GET EGGS ////
-
-// Declare Buttons
-typedef enum {
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT,
-	X,
-	Y,
-	A,
-	B,
-	L,
-	R,
-	L_BOOST,
-	R_BOOST,
-	NOTHING,
-	PLUS,
-	MINUS,
-	TRIGGERS
-} Buttons_t;
-
-// Declare Object...?
-typedef struct {
-	Buttons_t button;
-	uint16_t duration;
-} command; 
+//// Get_Eggs.c ////
 
 static const command get_eggs[] = {
-	{ LEFT,       5 }, // Face and activate the lady
+	// Face and activate the lady
+	{ LEFT,       5 },
 	{ NOTHING,    5 },
 	{ A,          5 },
 	{ NOTHING,   20 },
 	
-	{ A,          5 }, // Advance
+	// Advance
+	{ A,          5 },
 	{ NOTHING,   20 },	
-	
-	{ DOWN,       5 }, // Dodge Take Pokemon
+
+	// Dodge taking back Pokemon if an egg isn't ready
+	{ DOWN,       5 },
 	{ NOTHING,   20 },
 	{ DOWN,       5 },
 	{ A,          5 },
 	{ NOTHING,  175 },
 	
-	{ A,          5 }, // Advance
+	// Advance
+	{ A,          5 }, 
 	{ NOTHING,   20 },
 	
-	{ DOWN,       5 }, // Dodge Take Pokemon
+	// Face a way so if an egg isn't ready, we can't re-initiate conversation
+	{ DOWN,       5 }, 
 	{ NOTHING,  125 },
 	
-	{ A,          5 }, // Advance (egg only)
+	// If we got an egg, finish taking it
+	{ A,          5 },
 	{ NOTHING,  100 },
-	{ A,          5 }, // Advance (egg only)
+	{ A,          5 },
 	{ NOTHING,   10 },
 	
 	// Walk for new Egg and back
