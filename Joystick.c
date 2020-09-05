@@ -146,7 +146,7 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 	// TODO: Make this able to accept any number of scripts
 	
 	// GET EGGS
-	/*
+	/* */
 	command script[setup_controller_count + get_eggs_count];
 	
 	unsigned i;
@@ -157,9 +157,11 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 	for(i = 0; i < get_eggs_count; ++i){
 	    script[setup_controller_count+i] = get_eggs[i];
 	}	
-	*/
+	/* */
 	
 	// HATCH EGGS
+	
+	/*
 	
 	command script[setup_controller_count + hatch_eggs_count];
 	
@@ -171,6 +173,8 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 	for(i = 0; i < hatch_eggs_count; ++i){
 	    script[setup_controller_count+i] = hatch_eggs[i];
 	}	
+	
+	*/
 
 	// Prepare an empty report
 	memset(ReportData, 0, sizeof(USB_JoystickReport_Input_t));

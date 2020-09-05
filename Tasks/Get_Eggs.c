@@ -28,6 +28,12 @@ command get_eggs[] = {
 	{ DOWN,       5 }, 
 	{ NOTHING,  125 },
 	
+	// Choose Send to a Box
+	{ DOWN,       5 }, 
+	{ NOTHING,    5 },
+	{ A,          5 },
+	{ NOTHING,  125 },
+	
 	// If we got an egg, finish taking it
 	{ A,          5 },
 	{ NOTHING,  100 },
