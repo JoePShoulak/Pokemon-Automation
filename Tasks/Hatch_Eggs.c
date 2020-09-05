@@ -4,8 +4,9 @@
 
 command hatch_eggs[] = {
 	// Open Pokemon Boxes
-	{ X,         5 },
-	{ NOTHING,  30 },
+	{ X,         5
+	 },
+	{ NOTHING,  40 },
 	{ A,         5 },
 	{ NOTHING,  60 },
 	{ R,         5 },
@@ -18,23 +19,37 @@ command hatch_eggs[] = {
 
 	// Grab 5 eggs
 	{ A,         5 },
+	{ NOTHING,   5 },
 	{ UP,        5 },
+	{ NOTHING,   5 },
 	{ A,         5 },
+	{ NOTHING,   5 },
 
 	// Place eggs in party
 	{ LEFT,      5 },
+	{ NOTHING,   5 },
 	{ DOWN,      5 },
+	{ NOTHING,   5 },
 	{ A,         5 },
+	{ NOTHING,   5 },
 
 	// Reorganize box
 	{ RIGHT,     5 },
+	{ NOTHING,   5 },
 	{ UP,        5 },
+	{ NOTHING,   5 },
 	{ A,         5 },
+	{ NOTHING,   5 },
 	{ LEFT,      5 },
+	{ NOTHING,   5 },
 	{ UP,        5 },
+	{ NOTHING,   5 },
 	{ A,         5 },
+	{ NOTHING,   5 },
 	{ LEFT,      5 },
+	{ NOTHING,   5 },
 	{ A,         5 },
+	{ NOTHING,   5 },
 
 	// Exit Menu
 	{ B,         5 },
@@ -43,7 +58,7 @@ command hatch_eggs[] = {
 	{ NOTHING,  75 },
 	{ B,         5 },
 	{ NOTHING,  75 },
-	
+		
 	//// HATCH EGGS ////
 
 	// Face Left
@@ -164,16 +179,17 @@ command hatch_eggs[] = {
 	{ R_BOOST, 350 },
 	{ RIGHT,    10 },
 	{ R_BOOST, 400 },
-	
+
 	// Off Bike
 	{ PLUS,       5 },
 	{ NOTHING,   50 },
+	
 
 	//// STORE HATCHED POKEMON
 
 	// Open Pokemon Boxes
 	{ X,         5 },
-	{ NOTHING,  30 },
+	{ NOTHING,  40 },
 	{ A,         5 },
 	{ NOTHING,  60 },
 	{ R,         5 },
@@ -186,18 +202,24 @@ command hatch_eggs[] = {
 
 	// Grab party
 	{ LEFT,      5 },
+	{ NOTHING,   5 },
 	{ DOWN,      5 },
+	{ NOTHING,   5 },
 	{ A,         5 },
 	{ NOTHING,  10 },
 	{ UP,        5 },
 	{ NOTHING,  10 },
 	{ UP,        5 },
+	{ NOTHING,   5 },
 	{ A,         5 },
 
 	// Place in correct row
 	{ LEFT,      5 },
+	{ NOTHING,   5 },
 	{ UP,        5 },
+	{ NOTHING,   5 },
 	{ A,         5 },
+	{ NOTHING,   5 },
 	
 	// View Boxes
 	{ UP,        5 },
@@ -211,41 +233,56 @@ command hatch_eggs[] = {
 
 	// Shift Boxes Right
 	{ Y,         5 },
+	{ NOTHING,   5 },
 	{ RIGHT,     5 },
+	{ NOTHING,   5 },
 	{ Y,         5 },
 	{ NOTHING,   5 },
 
 	{ Y,         5 },
+	{ NOTHING,   5 },
 	{ RIGHT,     5 },
+	{ NOTHING,   5 },
 	{ Y,         5 },
 	{ NOTHING,   5 },
 
 	{ Y,         5 },
+	{ NOTHING,   5 },
 	{ RIGHT,     5 },
+	{ NOTHING,   5 },
 	{ Y,         5 },
 	{ NOTHING,   5 },
 
 	{ Y,         5 },
+	{ NOTHING,   5 },
 	{ RIGHT,     5 },
+	{ NOTHING,   5 },
 	{ Y,         5 },
 	{ NOTHING,   5 },
 
 	{ Y,         5 },
+	{ NOTHING,   5 },
 	{ RIGHT,     5 },
+	{ NOTHING,   5 },
 	{ Y,         5 },
 	{ NOTHING,   5 },
 
 	{ Y,         5 },
+	{ NOTHING,   5 },
 	{ RIGHT,     5 },
+	{ NOTHING,   5 },
 	{ Y,         5 },
 	{ NOTHING,   5 },
 
 	{ Y,         5 },
+	{ NOTHING,   5 },
 	{ RIGHT,     5 },
+	{ NOTHING,   5 },
 	{ Y,         5 },
 	{ NOTHING,   5 },
 
 	{ RIGHT,     5 },
+	{ NOTHING,   5 },
 	{ A,         5 },
 	{ NOTHING,   5 },
 		
@@ -254,10 +291,14 @@ command hatch_eggs[] = {
 	{ NOTHING, 100 },
 	{ B,         5 },
 	{ NOTHING, 100 },
-	{ R,         5 },  // Save on the way out
+	{ B,         5 },
 	{ NOTHING, 100 },
-	{ A,         5 },
-	{ NOTHING, 150 },
+	{ B,         5 },
+	{ NOTHING, 100 },
+	{ B,         5 },
+	{ NOTHING, 100 },
+	{ B,         5 },
+	{ NOTHING, 100 },
 };
 
 int hatch_eggs_count = sizeof(hatch_eggs)/sizeof(hatch_eggs[0]);
