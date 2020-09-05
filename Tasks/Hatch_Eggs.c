@@ -235,53 +235,10 @@ command hatch_eggs[] = {
 	{ Y,         5 },
 	{ NOTHING,   5 },
 
-	// Shift Box Down One
 	{ Y,         5 },
-	{ DOWN,      5 },
-	{ Y,         5 },
-	{ NOTHING,   5 },
-
-	// Shift Boxes Left
-	{ Y,         5 },
-	{ LEFT,      5 },
+	{ RIGHT,     5 },
 	{ Y,         5 },
 	{ NOTHING,   5 },
-
-	{ Y,         5 },
-	{ LEFT,      5 },
-	{ Y,         5 },
-	{ NOTHING,   5 },
-
-	{ Y,         5 },
-	{ LEFT,      5 },
-	{ Y,         5 },
-	{ NOTHING,   5 },
-
-	{ Y,         5 },
-	{ LEFT,      5 },
-	{ Y,         5 },
-	{ NOTHING,   5 },
-
-	{ Y,         5 },
-	{ LEFT,      5 },
-	{ Y,         5 },
-	{ NOTHING,   5 },
-
-	{ Y,         5 },
-	{ LEFT,      5 },
-	{ Y,         5 },
-	{ NOTHING,   5 },
-
-	{ Y,         5 },
-	{ LEFT,      5 },
-	{ Y,         5 },
-	{ NOTHING,   5 },
-
-	// End on the first box
-	{ UP,        5 },
-	{ NOTHING,  10 },
-	{ A,         5 },
-	{ NOTHING,  50 },
 		
 	// Exit Menu
 	{ B,         5 },
@@ -295,3 +252,7 @@ command hatch_eggs[] = {
 };
 
 int hatch_eggs_count = sizeof(hatch_eggs)/sizeof(hatch_eggs[0]);
+
+
+
+
