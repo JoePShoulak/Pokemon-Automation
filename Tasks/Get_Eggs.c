@@ -1,6 +1,8 @@
 //// Get_Eggs.c ////
 
-const command get_eggs[] = {
+#include "Get_Eggs.h"
+
+command get_eggs[] = {
 	// Face and activate the lady
 	{ LEFT,       5 },
 	{ NOTHING,    5 },
@@ -41,3 +43,5 @@ const command get_eggs[] = {
 	{ NOTHING,   30 },
 	{ UP,        30 },
 };
+
+int get_eggs_count = sizeof(get_eggs)/sizeof(get_eggs[0]);

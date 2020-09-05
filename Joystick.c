@@ -1,14 +1,25 @@
 //// main.c ////
 
+#include <stdlib.h>
+
 #include "Joystick.h"
 
-#include "./Tasks/Setup_Controller.h"
-#include "./Tasks/Get_Eggs.h"
+#include "./Tasks/Setup_Controller.c"
+#include "./Tasks/Get_Eggs.c"
 
-const command step[] = { setup_controller[], get_eggs[] };
+command step[2000];
 
 // Main entry point.
-int main(void) {
+int main(void) {	
+	unsigned i;
+    /*copy elements from a into c*/
+    for(i = 0; i<setup_controller_count; ++i){
+        step[i] = setup_controller[i];
+    } 
+    /*copy elements from b into c*/
+    for(i = 0; i < get_eggs_count; ++i){
+        step[setup_controller_count+i] = get_eggs[i];
+    }	
 	// We'll start by performing hardware and peripheral setup.
 	SetupHardware();
 	// We'll then enable global interrupts for our use.
