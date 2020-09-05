@@ -43,7 +43,7 @@ command hatch_eggs[] = {
 	{ NOTHING,  75 },
 	{ B,         5 },
 	{ NOTHING,  75 },
-
+	
 	//// HATCH EGGS ////
 
 	// Face Left
@@ -119,42 +119,52 @@ command hatch_eggs[] = {
 	// Hatch 5 Eggs	
 	{ A,         5 },
 	{ NOTHING, 900 },
+	{ B,        50 },
+	{ NOTHING, 150 },
+	{ B,        50 },
+	{ NOTHING, 150 },
+	{ RIGHT,     5 },
+	{ NOTHING,  30 },
+	
 	{ A,         5 },
+	{ NOTHING, 900 },
+	{ B,        50 },
+	{ NOTHING, 150 },
+	{ B,        50 },
+	{ NOTHING, 150 },
+	{ RIGHT,     5 },
+	{ NOTHING,  30 },
+	
+	{ A,         5 },
+	{ NOTHING, 900 },
+	{ B,        50 },
+	{ NOTHING, 150 },
+	{ B,        50 },
+	{ NOTHING, 150 },
+	{ RIGHT,     5 },
+	{ NOTHING,  30 },
+	
+	{ A,         5 },
+	{ NOTHING, 900 },
+	{ B,        50 },
+	{ NOTHING, 150 },
+	{ B,        50 },
 	{ NOTHING, 150 },
 	{ RIGHT,     5 },
 	{ NOTHING,  30 },
 
 	{ A,         5 },
 	{ NOTHING, 900 },
-	{ A,         5 },
+	{ B,        50 },
 	{ NOTHING, 150 },
-	{ RIGHT,     5 },
-	{ NOTHING,  30 },
-
-	{ A,         5 },
-	{ NOTHING, 900 },
-	{ A,         5 },
-	{ NOTHING, 150 },
-	{ RIGHT,     5 },
-	{ NOTHING,  30 },
-
-	{ A,         5 },
-	{ NOTHING, 900 },
-	{ A,         5 },
-	{ NOTHING, 150 },
-	{ RIGHT,     5 },
-	{ NOTHING,  30 },
-
-	{ A,         5 },
-	{ NOTHING, 900 },
-	{ A,        30 },
+	{ B,        50 },
 
 	// Right in case this command was missed because eggs were ready
 	{ RIGHT,    10 },
 	{ R_BOOST, 350 },
 	{ RIGHT,    10 },
 	{ R_BOOST, 400 },
-
+	
 	// Off Bike
 	{ PLUS,       5 },
 	{ NOTHING,   50 },
@@ -235,18 +245,17 @@ command hatch_eggs[] = {
 	{ Y,         5 },
 	{ NOTHING,   5 },
 
-	{ Y,         5 },
 	{ RIGHT,     5 },
-	{ Y,         5 },
+	{ A,         5 },
 	{ NOTHING,   5 },
 		
 	// Exit Menu
 	{ B,         5 },
-	{ NOTHING,  75 },
+	{ NOTHING, 100 },
 	{ B,         5 },
-	{ NOTHING,  75 },
+	{ NOTHING, 100 },
 	{ R,         5 },  // Save on the way out
-	{ NOTHING,  50 },
+	{ NOTHING, 100 },
 	{ A,         5 },
 	{ NOTHING, 150 },
 };
