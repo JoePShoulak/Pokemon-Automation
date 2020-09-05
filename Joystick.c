@@ -6,20 +6,11 @@
 
 #include "./Tasks/Setup_Controller.c"
 #include "./Tasks/Get_Eggs.c"
-
-command step[2000];
+#include "./Tasks/Hatch_Eggs.c"
 
 // Main entry point.
-int main(void) {	
-	unsigned i;
-    /*copy elements from a into c*/
-    for(i = 0; i<setup_controller_count; ++i){
-        step[i] = setup_controller[i];
-    } 
-    /*copy elements from b into c*/
-    for(i = 0; i < get_eggs_count; ++i){
-        step[setup_controller_count+i] = get_eggs[i];
-    }	
+int main(void) {
+	
 	// We'll start by performing hardware and peripheral setup.
 	SetupHardware();
 	// We'll then enable global interrupts for our use.
@@ -151,13 +142,42 @@ int portsval = 0;
 
 // Prepare the next report for the host.
 void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
+	
+	// TODO: Make this able to accept any number of scripts
+	
+	// GET EGGS
+	/*
+	command script[setup_controller_count + get_eggs_count];
+	
+	unsigned i;
+	for(i = 0; i<setup_controller_count; ++i){
+	    script[i] = setup_controller[i];
+	} 
+
+	for(i = 0; i < get_eggs_count; ++i){
+	    script[setup_controller_count+i] = get_eggs[i];
+	}	
+	*/
+	
+	// HATCH EGGS
+	
+	command script[setup_controller_count + hatch_eggs_count];
+	
+	unsigned i;
+	for(i = 0; i<setup_controller_count; ++i){
+	    script[i] = setup_controller[i];
+	} 
+
+	for(i = 0; i < hatch_eggs_count; ++i){
+	    script[setup_controller_count+i] = hatch_eggs[i];
+	}	
 
 	// Prepare an empty report
 	memset(ReportData, 0, sizeof(USB_JoystickReport_Input_t));
-	ReportData->LX = STICK_CENTER;
-	ReportData->LY = STICK_CENTER;
-	ReportData->RX = STICK_CENTER;
-	ReportData->RY = STICK_CENTER;
+	ReportData->LX  = STICK_CENTER;
+	ReportData->LY  = STICK_CENTER;
+	ReportData->RX  = STICK_CENTER;
+	ReportData->RY  = STICK_CENTER;
 	ReportData->HAT = HAT_CENTER;
 
 	// Repeat ECHOES times the last report
@@ -197,7 +217,7 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 
 		case PROCESS:
 
-			switch (step[bufindex].button)
+			switch (script[bufindex].button)
 			{
 
 				case UP:
@@ -273,14 +293,14 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 
 			duration_count++;
 
-			if (duration_count > step[bufindex].duration)
+			if (duration_count > script[bufindex].duration)
 			{
 				bufindex++;
 				duration_count = 0;				
 			}
 
 
-			if (bufindex > (int)( sizeof(step) / sizeof(step[0])) - 1)
+			if (bufindex > (int)( sizeof(script) / sizeof(script[0])) - 1)
 			{
 
 				// state = CLEANUP;
