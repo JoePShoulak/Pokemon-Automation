@@ -1,8 +1,24 @@
 //// Hatch_Eggs.c ////
 
-#include "Hatch_Eggs.h"
+#include "Tasks.h"
 
-command hatch_eggs[] = {
+command script[] = {
+	{ NOTHING,  250 },
+	{ TRIGGERS,   5 },
+	{ NOTHING,  100 },
+	{ TRIGGERS,   5 },
+	{ NOTHING,  100 },
+
+	{ NOTHING,    1 },
+	{ NOTHING,    1 },
+	{ NOTHING,    1 },
+	{ NOTHING,    1 },
+	{ NOTHING,    1 },
+	{ NOTHING,    1 },
+	{ NOTHING,    1 },
+	{ NOTHING,    1 },
+	{ NOTHING,    1 },
+	{ NOTHING,    1 },
 	// Open Pokemon Boxes
 	{ X,         5 },
 	{ NOTHING,  40 },
@@ -299,9 +315,3 @@ command hatch_eggs[] = {
 	{ B,         5 },
 	{ NOTHING, 100 },
 };
-
-int hatch_eggs_count = sizeof(hatch_eggs)/sizeof(hatch_eggs[0]);
-
-
-
-
