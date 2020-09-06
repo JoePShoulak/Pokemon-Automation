@@ -221,7 +221,7 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 
 		case PROCESS:
 
-			switch (script[bufindex].button)
+			switch (script[bufindex].button) // TODO CHECK THIS OUT
 			{
 
 				case UP:
@@ -270,6 +270,10 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 
 				case L:
 					ReportData->Button |= SWITCH_L;
+					break;
+
+				case HOME:
+					ReportData->Button |= SWITCH_HOME;
 					break;
 					
 				case L_BOOST:

@@ -72,6 +72,7 @@ typedef enum {
 	L_BOOST,
 	R_BOOST,
 	NOTHING,
+	HOME,
 	PLUS,
 	MINUS,
 	TRIGGERS
