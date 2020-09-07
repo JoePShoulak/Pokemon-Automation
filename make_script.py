@@ -77,8 +77,12 @@ walk_left_for_egg   =   [ "LEFT    ", "300" ], [ "NOTHING ", " 25" ]
 
 ## MOVEMENTS - On Bike ##
 # Bike for hatching eggs
-bike_left_for_h     =   [ "LEFT    ", "800" ], [ "NOTHING ", " 15" ]                       
-bike_right_for_h    =   [ "RIGHT   ", "825" ], [ "NOTHING ", " 15" ]
+bike_left_for_h     =   [ "LEFT    ", "850" ], [ "NOTHING ", " 15" ]                       
+bike_right_for_h    =   [ "RIGHT   ", "875" ], [ "NOTHING ", " 15" ]
+
+# Bike for getting back to the lady
+bike_left_for_l     =   [ "LEFT    ", "800" ], [ "NOTHING ", " 15" ]                       
+bike_right_for_l    =   [ "RIGHT   ", "825" ], [ "NOTHING ", " 15" ]
 
 # Get on/off bike
 bike_toggle         =   [ "PLUS    ", "  5" ], [ "NOTHING ", " 25" ]
@@ -216,7 +220,11 @@ setup_controller    = flatten([ wait_vslow,
                                 triggers_vfast,
                                 wait_slow,
                                 triggers_vfast,
-                                wait_slow ])
+                                wait_slow,
+                                wait_instant,
+                                wait_instant,
+                                wait_instant,
+                                wait_instant ])
                         
 ### SCRIPTS ### (scripts that accomplish a task worth accomplishing, or needed to do so)
 # Get an egg ()
@@ -302,7 +310,7 @@ get_to_hatch        = flatten([ pokemon_boxes,
                                 face_right,
                         
                                 bike_toggle,
-                                bike_right_for_h,
+                                bike_right_for_l,
                                 bike_toggle ])
 
 # Get us prepared to get eggs after hatching them (time)
@@ -317,7 +325,7 @@ hatch_to_get        = flatten([ pokemon_boxes,
                         
                                 face_left,
                                 bike_toggle,
-                                bike_left_for_h,
+                                bike_left_for_l,
                                 bike_toggle,
                         
                                 walk_down,
@@ -330,7 +338,7 @@ get_eggs_box     =   get_egg*33
 hatch_eggs_box   = ( grab_eggs_to_hatch + bike_to_hatch_eggs + place_hatched_eggs )*6 
 hatch_eggs_box  +=   reorganize_boxes
                         
-mode = "GETHATCHEGGS" # TODO make CLI changable
+mode = "HATCHEGGS" # TODO make CLI changable
                     
 if mode == "GETEGGS": # (time)
     scripts = flatten([ setup_controller,
