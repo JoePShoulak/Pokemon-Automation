@@ -314,7 +314,7 @@ hatch_to_get        = flatten([ pokemon_boxes,
                                 walk_down,
                                 walk_up_a_lot ])
                                 
-# Get a full(ish) box off eggs (~16min)
+# Get a full(ish) box off eggs (~16.25min)
 get_eggs_box     = get_egg*30           
 
 # Hatch a full box of eggs
@@ -344,14 +344,14 @@ elif mode == "TEST":
                         # place_hatched_eggs,
                         reorganize_boxes,
                         hatch_to_get ])
-     
+
+# Open the file we plan on writing this list to: Tasks.c
 script_file = open('./Tasks.c', 'w')
 
-script_file.write("#include \"Tasks.h\"\n")
-script_file.write("\n")
-script_file.write("command script[] = {\n")
+script_file.write("#include \"Tasks.h\"\n\n") # Title in a comment at the top. Habit
+script_file.write("command script[] = {\n")   # Start our list
 
 for i in scripts:
-    write_command(script_file, i[0], i[1])
+    write_command(script_file, i[0], i[1])    # Put script in, formatted for c
     
-script_file.write("};")
+script_file.write("};")                       # End list
