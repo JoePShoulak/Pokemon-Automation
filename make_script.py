@@ -2,11 +2,11 @@ def write_command(f, cmd, dur):
     f.write("\t{ " + cmd + ", " + dur + "},\n")
     
 def flatten(list):
-    return [val for sublist in list for val in sublist]
+    return [val for sublist in list for val in sublist] # Black magic
     
 rows = 2 # rows to hatch TODO make CLI changable
  
-### COMMANDS ### (raw individual actions)   
+### COMMANDS ### (raw individual actions)
 ## BUTTONS ##
 # A                    
 a_vfast             =   [ "A       ", "  5" ], [ "NOTHING ", "  5" ]
@@ -115,6 +115,12 @@ shuffle_row         = flatten([ shift_box_right,
                                 shift_box_right,
                                 shift_box_right,
                                 shift_box_right ])
+                                
+# Shuffle the last box of the current row with the first box of the next row
+shuffle_change_row = flatten([ y_vfast,     # Start a swap
+                                right_vfast, # First column
+                                down_vfast,  # Down a row to the first box of row 2
+                                y_vfast ])     # Finish swap
 
 # Exit out of the menu back to the overworld
 exit_menu           = flatten([ b_slow,
@@ -131,7 +137,8 @@ grab_column         = flatten([ a_vfast,
                                 a_vfast ])
 
 # Grab the pokemon currently in the party
-grab_party          = flatten([ down_vfast,
+grab_party          = flatten([ left_vfast,
+                                down_vfast,
                                 a_medium,
                                 up_fast,
                                 up_vfast,
@@ -230,25 +237,31 @@ grab_eggs_to_hatch  = flatten([ pokemon_boxes,
 
 # Hatch the eggs ()
 bike_to_hatch_eggs  = flatten([ face_left,
-
                                 bike_toggle,
+                                
+                                # To the lady and back 3 times hatches Eevees
                                 bike_left_for_h,
                                 bike_face_right,
                                 bike_right_for_h,
+                                
                                 bike_face_left,
                                 bike_left_for_h,
                                 bike_face_right,
                                 bike_right_for_h,
+                                
                                 bike_face_left,
                                 bike_left_for_h,
                                 bike_face_right,
                                 bike_right_for_h,
 
+                                # Get through the messages of hatching 5 eggs
                                 accept_hatch,
                                 accept_hatch,
                                 accept_hatch,
                                 accept_hatch,
                                 accept_hatch,
+                                
+                                # If we started hatching before finishing going right, do so
                                 bike_right_for_h,
 
                                 bike_toggle ])
@@ -256,7 +269,6 @@ bike_to_hatch_eggs  = flatten([ face_left,
 # Put our hatched pokemon back in the boxes ()
 place_hatched_eggs  = flatten([ pokemon_boxes,
                                 multiselect,
-                                left_vfast,
                                 grab_party,
                                 place_in_far_column,
                                 exit_menu ])
@@ -266,17 +278,14 @@ if rows == 1:
 
 if rows == 2:
    reorganize_boxes = flatten([ shuffle_row,
-                                y_vfast,
-                                right_vfast,
-                                down_vfast,
-                                y_vfast,
+                                shuffle_change_row,
                                 shuffle_row,
-                                up_vfast])
+                                up_vfast]) # Back up to the first row, first box
                                 
 # Move down a bunch of boxes so we can keep looping past one box ()
 reorganize_boxes    = flatten([ pokemon_boxes,
                                 box_view,
-                                reorganize_boxes,
+                                reorganize_boxes, # This is the actual shuffling, defined above
                                 right_vfast, # put cursor over correct box
                                 a_vfast,     # select correct box
                                 exit_menu ])
@@ -284,7 +293,6 @@ reorganize_boxes    = flatten([ pokemon_boxes,
 # Get us prepared to hatch eggs after getting them ()
 get_to_hatch        = flatten([ pokemon_boxes,
                                 multiselect,
-                                left_vfast,
                                 grab_party,
                                 place_in_last_box,
                                 exit_menu,
@@ -299,11 +307,11 @@ get_to_hatch        = flatten([ pokemon_boxes,
 # Get us prepared to get eggs after hatching them ()
 hatch_to_get        = flatten([ pokemon_boxes,
                                 multiselect,
-                                l_fast,
+                                l_fast,   # Go to the box to the left, which should be the last box
                                 grab_column,
                                 place_in_party,
                                 right_vfast,
-                                r_fast,
+                                r_fast,   # Back to box 1
                                 exit_menu,
                         
                                 face_left,
@@ -315,11 +323,11 @@ hatch_to_get        = flatten([ pokemon_boxes,
                                 walk_up_a_lot ])
                                 
 # Get a full(ish) box off eggs (~16.25min)
-get_eggs_box     = get_egg*30           
+get_eggs_box     =   get_egg*30           
 
 # Hatch a full box of eggs
-hatch_eggs_box   = (grab_eggs_to_hatch + bike_to_hatch_eggs + place_hatched_eggs)*6 
-hatch_eggs_box  += reorganize_boxes
+hatch_eggs_box   = ( grab_eggs_to_hatch + bike_to_hatch_eggs + place_hatched_eggs )*6 
+hatch_eggs_box  +=   reorganize_boxes
                         
 mode = "GETHATCHEGGS" # TODO make CLI changable
                     
