@@ -4,7 +4,7 @@
 
 #include "Joystick.h"
 
-#include "Tasks.c"
+#include "Script.c"
 
 // Main entry point.
 int main(void) {

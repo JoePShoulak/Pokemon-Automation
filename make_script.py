@@ -363,9 +363,9 @@ elif mode == "TEST": # Comment or uncomment out certain parts to make custom scr
                         hatch_to_get ])
 
 # Making our script file, Tasks.c
-script_file = open('./Tasks.c', 'w') # Open the file we plan on writing this list to
+script_file = open('./Script.c', 'w') # Open the file we plan on writing this list to
 
-script_file.write("#include \"Tasks.h\"\n\n") # Title in a comment at the top. Habit
+script_file.write("#include \"Script.h\"\n\n") # Title in a comment at the top. Habit
 script_file.write("command script[] = {\n")   # Start our list
 
 for command in scripts:

@@ -1,3 +1,3 @@
-//// Get_Eggs.h ////
+//// Script.h ////
 
 extern command script[];
