@@ -8,6 +8,7 @@ rows = 2 # rows to hatch TODO make CLI changable
  
 ### COMMANDS ### (raw individual actions)
 ## BUTTONS ##
+
 # A                    
 a_vfast             =   [ "A       ", "  5" ], [ "NOTHING ", "  5" ]
 a_fast              =   [ "A       ", "  5" ], [ "NOTHING ", " 25" ]
@@ -280,14 +281,14 @@ if rows == 2:
    reorganize_boxes = flatten([ shuffle_row,
                                 shuffle_change_row,
                                 shuffle_row,
-                                up_vfast]) # Back up to the first row, first box
+                                up_vfast ]) # Back up to the first row, last box
                                 
 # Move down a bunch of boxes so we can keep looping past one box ()
 reorganize_boxes    = flatten([ pokemon_boxes,
                                 box_view,
                                 reorganize_boxes, # This is the actual shuffling, defined above
-                                right_vfast, # put cursor over correct box
-                                a_vfast,     # select correct box
+                                right_vfast, # Go to the starting box
+                                a_vfast,     # Select box
                                 exit_menu ])
 
 # Get us prepared to hatch eggs after getting them ()
@@ -325,25 +326,25 @@ hatch_to_get        = flatten([ pokemon_boxes,
 # Get a full(ish) box off eggs (~16.25min)
 get_eggs_box     =   get_egg*30           
 
-# Hatch a full box of eggs
+# Hatch a full box of eggs ()
 hatch_eggs_box   = ( grab_eggs_to_hatch + bike_to_hatch_eggs + place_hatched_eggs )*6 
 hatch_eggs_box  +=   reorganize_boxes
                         
 mode = "GETHATCHEGGS" # TODO make CLI changable
                     
-if mode == "GETEGGS":
+if mode == "GETEGGS": # ()
     scripts = flatten([ setup_controller,
                         get_egg ])
-elif mode == "HATCHEGGS":
+elif mode == "HATCHEGGS": # ()
     scripts = flatten([ setup_controller,
                         hatch_eggs_box ])
-elif mode == "GETHATCHEGGS":
+elif mode == "GETHATCHEGGS": # ()
     scripts = flatten([ setup_controller,
                         get_eggs_box,
                         get_to_hatch,
                         hatch_eggs_box,
                         hatch_to_get ])
-elif mode == "TEST":
+elif mode == "TEST": # Comment or uncomment out certain parts to make custom scripts
     scripts = flatten([ setup_controller,
                         # get_egg,
                         # get_to_hatch,
@@ -353,13 +354,13 @@ elif mode == "TEST":
                         reorganize_boxes,
                         hatch_to_get ])
 
-# Open the file we plan on writing this list to: Tasks.c
-script_file = open('./Tasks.c', 'w')
+# Making our script file, Tasks.c
+script_file = open('./Tasks.c', 'w') # Open the file we plan on writing this list to
 
 script_file.write("#include \"Tasks.h\"\n\n") # Title in a comment at the top. Habit
 script_file.write("command script[] = {\n")   # Start our list
 
-for i in scripts:
-    write_command(script_file, i[0], i[1])    # Put script in, formatted for c
+for command in scripts:
+    write_command(script_file, command[0], command[1]) # Put script in, formatted for c
     
-script_file.write("};")                       # End list
+script_file.write("};") # End list
