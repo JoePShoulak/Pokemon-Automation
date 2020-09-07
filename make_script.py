@@ -4,7 +4,7 @@ def write_command(f, cmd, dur):
 def flatten(list):
     return [val for sublist in list for val in sublist] # Black magic
     
-rows = 2 # rows to hatch TODO make CLI changable
+rows = 1 # rows to hatch TODO make CLI changable
  
 ### COMMANDS ### (raw individual actions)
 ## BUTTONS ##
@@ -324,13 +324,13 @@ hatch_to_get        = flatten([ pokemon_boxes,
                                 walk_up_a_lot ])
                                 
 # Get a full(ish) box off eggs (~16.25min)
-get_eggs_box     =   get_egg*30           
+get_eggs_box     =   get_egg*33
 
 # Hatch a full box of eggs ()
 hatch_eggs_box   = ( grab_eggs_to_hatch + bike_to_hatch_eggs + place_hatched_eggs )*6 
 hatch_eggs_box  +=   reorganize_boxes
                         
-mode = "GETHATCHEGGS" # TODO make CLI changable
+mode = "HATCHEGGS" # TODO make CLI changable
                     
 if mode == "GETEGGS": # ()
     scripts = flatten([ setup_controller,
