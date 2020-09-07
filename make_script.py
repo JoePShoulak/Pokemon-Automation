@@ -219,11 +219,11 @@ setup_controller    = flatten([ wait_vslow,
                                 wait_slow ])
                         
 ### SCRIPTS ### (scripts that accomplish a task worth accomplishing, or needed to do so)
-# Get an egg (32.5s)
+# Get an egg ()
 get_egg             = flatten([ walk_for_new_egg,
                                 talk_to_lady ])
 
-# Grab eggs from boxes that we wants to hatch ()
+# Grab eggs from boxes that we wants to hatch (time)
 grab_eggs_to_hatch  = flatten([ pokemon_boxes,
                                 multiselect,
                                 grab_column,
@@ -236,7 +236,7 @@ grab_eggs_to_hatch  = flatten([ pokemon_boxes,
                                 a_vfast,     # place pokes
                                 exit_menu ])
 
-# Hatch the eggs ()
+# Hatch the eggs (time)
 bike_to_hatch_eggs  = flatten([ face_left,
                                 bike_toggle,
                                 
@@ -267,7 +267,7 @@ bike_to_hatch_eggs  = flatten([ face_left,
 
                                 bike_toggle ])
  
-# Put our hatched pokemon back in the boxes ()
+# Put our hatched pokemon back in the boxes (time)
 place_hatched_eggs  = flatten([ pokemon_boxes,
                                 multiselect,
                                 grab_party,
@@ -283,7 +283,7 @@ if rows == 2:
                                 shuffle_row,
                                 up_vfast ]) # Back up to the first row, last box
                                 
-# Move down a bunch of boxes so we can keep looping past one box ()
+# Move down a bunch of boxes so we can keep looping past one box (time)
 reorganize_boxes    = flatten([ pokemon_boxes,
                                 box_view,
                                 reorganize_boxes, # This is the actual shuffling, defined above
@@ -291,7 +291,7 @@ reorganize_boxes    = flatten([ pokemon_boxes,
                                 a_vfast,     # Select box
                                 exit_menu ])
 
-# Get us prepared to hatch eggs after getting them ()
+# Get us prepared to hatch eggs after getting them (time)
 get_to_hatch        = flatten([ pokemon_boxes,
                                 multiselect,
                                 grab_party,
@@ -305,7 +305,7 @@ get_to_hatch        = flatten([ pokemon_boxes,
                                 bike_right_for_h,
                                 bike_toggle ])
 
-# Get us prepared to get eggs after hatching them ()
+# Get us prepared to get eggs after hatching them (time)
 hatch_to_get        = flatten([ pokemon_boxes,
                                 multiselect,
                                 l_fast,   # Go to the box to the left, which should be the last box
@@ -323,22 +323,22 @@ hatch_to_get        = flatten([ pokemon_boxes,
                                 walk_down,
                                 walk_up_a_lot ])
                                 
-# Get a full(ish) box off eggs (~16.25min)
+# Get a full(ish) box off eggs ()
 get_eggs_box     =   get_egg*33
 
-# Hatch a full box of eggs ()
+# Hatch a full box of eggs (time)
 hatch_eggs_box   = ( grab_eggs_to_hatch + bike_to_hatch_eggs + place_hatched_eggs )*6 
 hatch_eggs_box  +=   reorganize_boxes
                         
-mode = "HATCHEGGS" # TODO make CLI changable
+mode = "GETHATCHEGGS" # TODO make CLI changable
                     
-if mode == "GETEGGS": # ()
+if mode == "GETEGGS": # (time)
     scripts = flatten([ setup_controller,
                         get_egg ])
-elif mode == "HATCHEGGS": # ()
+elif mode == "HATCHEGGS": # (time)
     scripts = flatten([ setup_controller,
                         hatch_eggs_box ])
-elif mode == "GETHATCHEGGS": # ()
+elif mode == "GETHATCHEGGS": # (time)
     scripts = flatten([ setup_controller,
                         get_eggs_box,
                         get_to_hatch,
