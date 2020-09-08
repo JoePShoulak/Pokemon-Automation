@@ -288,10 +288,10 @@ hatch_5_eggs        = flatten([ grab_eggs_to_hatch,
                                 bike_to_hatch_eggs,
                                 place_hatched_eggs ])
                                 
-rows = 1 # rows to hatch TODO make CLI changable
+rows = 1 # rows to hatch TODO make CLI changable also TODO move this logic
 
 if rows == 1:                           
-   reorganize_boxes  = flatten([ shuffle_row ])
+   reorganize_boxes = flatten([ shuffle_row ])
 
 if rows == 2:
    reorganize_boxes = flatten([ shuffle_row,
@@ -340,7 +340,7 @@ hatch_to_get        = flatten([ pokemon_boxes,
                                 walk_up_a_lot ])
                                 
 # Get a full(ish) box off eggs ()
-get_eggs_box     =   get_egg*36
+get_eggs_box     =   get_egg*30
 
 # Hatch a full box of eggs (time)
 hatch_eggs_box   =   hatch_5_eggs*6 
