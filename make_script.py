@@ -288,7 +288,7 @@ hatch_5_eggs        = flatten([ grab_eggs_to_hatch,
                                 bike_to_hatch_eggs,
                                 place_hatched_eggs ])
                                 
-rows = 1 # rows to hatch TODO make CLI changable also TODO move this logic
+rows = 2 # rows to hatch TODO make CLI changable also TODO move this logic
 
 if rows == 1:                           
    reorganize_boxes = flatten([ shuffle_row ])
