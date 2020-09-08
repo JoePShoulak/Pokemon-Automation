@@ -11,6 +11,7 @@
 
 // Main entry point.
 int main(void) {
+	
 	// We'll start by performing hardware and peripheral setup.
 	SetupHardware();
 	// We'll then enable global interrupts for our use.
@@ -33,7 +34,7 @@ void SetupHardware(void) {
 	// We need to disable watchdog if enabled by bootloader/fuses.
 	MCUSR &= ~(1 << WDRF);
 	wdt_disable();
-
+	
 	// We need to disable clock division before initializing the USB hardware.
 	clock_prescale_set(clock_div_1);
 	// We can then initialize our hardware and peripherals, including the USB stack.
@@ -245,18 +246,8 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 				case HOME:
 					ReportData->Button |= SWITCH_HOME;
 					break;
-					
-				case L_BOOST:
-					ReportData->LX = STICK_MIN;		
-					ReportData->Button |= SWITCH_B;
-					break;
 
-				case R_BOOST:
-					ReportData->LX = STICK_MAX;		
-					ReportData->Button |= SWITCH_B;
-					break;
-
-				case TRIGGERS:
+				case TRIGS:
 					ReportData->Button |= SWITCH_L | SWITCH_R;
 					break;
 

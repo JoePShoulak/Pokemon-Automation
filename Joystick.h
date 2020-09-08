@@ -69,13 +69,11 @@ typedef enum {
 	B,
 	L,
 	R,
-	L_BOOST,
-	R_BOOST,
-	NOTHING,
+	PAUSE,
 	HOME,
 	PLUS,
 	MINUS,
-	TRIGGERS
+	TRIGS
 } Buttons_t;
 
 // Declare Object...?

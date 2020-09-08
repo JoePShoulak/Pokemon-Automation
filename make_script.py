@@ -10,92 +10,99 @@ def flatten(list):
 ## BUTTONS ##
 
 # A                    
-a_vfast             =   [ "A       ", "  5" ], [ "NOTHING ", "  5" ]
-a_fast              =   [ "A       ", "  5" ], [ "NOTHING ", " 25" ]
-a_medium            =   [ "A       ", "  5" ], [ "NOTHING ", " 50" ]                    
-a_slow              =   [ "A       ", "  5" ], [ "NOTHING ", "100" ]
-a_vslow             =   [ "A       ", "  5" ], [ "NOTHING ", "200" ]
+a_vfast             =   [ "A    ", "  5" ], [ "PAUSE", "  5" ]
+a_fast              =   [ "A    ", "  5" ], [ "PAUSE", " 25" ]
+a_medium            =   [ "A    ", "  5" ], [ "PAUSE", " 50" ]                    
+a_slow              =   [ "A    ", "  5" ], [ "PAUSE", "100" ]
+a_vslow             =   [ "A    ", "  5" ], [ "PAUSE", "200" ]
 
 # B
-b_vfast             =   [ "B       ", "  5" ], [ "NOTHING ", "  5" ]
-b_fast              =   [ "B       ", "  5" ], [ "NOTHING ", " 25" ]
-b_slow              =   [ "B       ", "  5" ], [ "NOTHING ", "100" ]
-b_vslow             =   [ "B       ", "  5" ], [ "NOTHING ", "200" ]
-b_eslow             =   [ "B       ", "  5" ], [ "NOTHING ", "900" ]
+b_vfast             =   [ "B    ", "  5" ], [ "PAUSE", "  5" ]
+b_fast              =   [ "B    ", "  5" ], [ "PAUSE", " 25" ]
+b_slow              =   [ "B    ", "  5" ], [ "PAUSE", "100" ]
+b_vslow             =   [ "B    ", "  5" ], [ "PAUSE", "200" ]
+b_eslow             =   [ "B    ", "  5" ], [ "PAUSE", "900" ]
 
 # X
-x_medium            =   [ "X       ", "  5" ], [ "NOTHING ", " 50" ]
-x_slow              =   [ "X       ", "  5" ], [ "NOTHING ", "100" ]
+x_medium            =   [ "X    ", "  5" ], [ "PAUSE", " 50" ]
+x_slow              =   [ "X    ", "  5" ], [ "PAUSE", "100" ]
 
 # Y
-y_vfast             =   [ "Y       ", "  5" ], [ "NOTHING ", "  5" ]
+y_vfast             =   [ "Y    ", "  5" ], [ "PAUSE", "  5" ]
 
 # L
-l_fast              =   [ "L       ", "  5" ], [ "NOTHING ", " 25" ]
+l_fast              =   [ "L    ", "  5" ], [ "PAUSE", " 25" ]
 
 # R
-r_fast              =   [ "R       ", "  5" ], [ "NOTHING ", " 25" ]
+r_fast              =   [ "R    ", "  5" ], [ "PAUSE", " 25" ]
+r_slow              =   [ "R    ", "  5" ], [ "PAUSE", "100" ]
 
-# Triggers
-triggers_vfast      =   [ "TRIGGERS", "  5" ], [ "NOTHING ", "  5" ]
+# TRIGS
+TRIGS_vfast         =   [ "TRIGS", "  5" ], [ "PAUSE", "  5" ]
 
 ## MOVEMENTS - MENU ##
 # Right
-right_vfast         =   [ "RIGHT   ", "  5" ], [ "NOTHING ", "  5" ]
-right_medium        =   [ "RIGHT   ", "  5" ], [ "NOTHING ", " 50" ]
-r_slow              =   [ "R       ", "  5" ], [ "NOTHING ", "100" ]
+right_vfast         =   [ "RIGHT", "  5" ], [ "PAUSE", "  5" ]
+right_medium        =   [ "RIGHT", "  5" ], [ "PAUSE", " 50" ]
+r_slow              =   [ "R    ", "  5" ], [ "PAUSE", "100" ]
              
 # Up      
-up_vfast            =   [ "UP      ", "  5" ], [ "NOTHING ", "  5" ]
-up_fast             =   [ "UP      ", "  5" ], [ "NOTHING ", " 25" ]
-up_medium           =   [ "UP      ", "  5" ], [ "NOTHING ", " 50" ]
+up_vfast            =   [ "UP   ", "  5" ], [ "PAUSE", "  5" ]
+up_fast             =   [ "UP   ", "  5" ], [ "PAUSE", " 25" ]
+up_medium           =   [ "UP   ", "  5" ], [ "PAUSE", " 50" ]
 
 # Left
-left_vfast          =   [ "LEFT    ", "  5" ], [ "NOTHING ", "  5" ]
+left_vfast          =   [ "LEFT ", "  5" ], [ "PAUSE", "  5" ]
 
 # Down                    
-down_vfast          =   [ "DOWN    ", "  5" ], [ "NOTHING ", "  5" ]
-down_fast           =   [ "DOWN    ", "  5" ], [ "NOTHING ", " 25" ]
-down_medium         =   [ "DOWN    ", "  5" ], [ "NOTHING ", " 50" ]
-down_slow           =   [ "DOWN    ", "  5" ], [ "NOTHING ", "100" ]
+down_vfast          =   [ "DOWN ", "  5" ], [ "PAUSE", "  5" ]
+down_fast           =   [ "DOWN ", "  5" ], [ "PAUSE", " 25" ]
+down_medium         =   [ "DOWN ", "  5" ], [ "PAUSE", " 50" ]
+down_slow           =   [ "DOWN ", "  5" ], [ "PAUSE", "100" ]
          
 ## MOVEMENTS - On Foot ##          
 # Face a certain direction (functionaly same as left_vfast, but more descriptive)
-face_left           =   [ "LEFT    ", "  5" ],  [ "NOTHING ", "  5" ]
-face_right          =   [ "RIGHT   ", "  5" ],  [ "NOTHING ", "  5" ]
+face_left           =   [ "LEFT ", "  5" ], [ "PAUSE", "  5" ]
+face_right          =   [ "RIGHT", "  5" ], [ "PAUSE", "  5" ]
 
 # Walk (misc.)
-walk_up             =   [ "UP      ", " 50" ], [ "NOTHING ", " 25" ]
-walk_up_a_lot       =   [ "UP      ", "100" ], [ "NOTHING ", " 25" ]
+walk_up             =   [ "UP   ", " 50" ], [ "PAUSE", " 25" ]
+walk_up_a_lot       =   [ "UP   ", "100" ], [ "PAUSE", " 25" ]
 
-walk_down_a_bit     =   [ "DOWN    ", " 25" ], [ "NOTHING ", " 25" ]
-walk_down           =   [ "DOWN    ", " 50" ], [ "NOTHING ", " 25" ]
+walk_down_a_bit     =   [ "DOWN ", " 25" ], [ "PAUSE", " 25" ]
+walk_down           =   [ "DOWN ", " 50" ], [ "PAUSE", " 25" ]
          
 # Walk (to get a new egg)               
-walk_right_for_egg  =   [ "RIGHT   ", "300" ], [ "NOTHING ", " 25" ]
-walk_left_for_egg   =   [ "LEFT    ", "300" ], [ "NOTHING ", " 25" ]
+walk_right_for_egg  =   [ "RIGHT", "300" ], [ "PAUSE", " 25" ]
+walk_left_for_egg   =   [ "LEFT ", "300" ], [ "PAUSE", " 25" ]
 
 ## MOVEMENTS - On Bike ##
 # Bike for hatching eggs
-bike_left_for_h     =   [ "LEFT    ", "850" ], [ "NOTHING ", " 15" ]                       
-bike_right_for_h    =   [ "RIGHT   ", "875" ], [ "NOTHING ", " 15" ]
+bike_left_for_h     =   [ "LEFT ", "850" ], [ "PAUSE", " 15" ]                       
+bike_right_for_h    =   [ "RIGHT", "875" ], [ "PAUSE", " 15" ]
 
 # Bike for getting back to the lady
-bike_left_for_l     =   [ "LEFT    ", "800" ], [ "NOTHING ", " 15" ]                       
-bike_right_for_l    =   [ "RIGHT   ", "825" ], [ "NOTHING ", " 15" ]
+bike_left_for_l     =   [ "LEFT ", "800" ], [ "PAUSE", " 15" ]                       
+bike_right_for_l    =   [ "RIGHT", "825" ], [ "PAUSE", " 15" ]
 
 # Get on/off bike
-bike_toggle         =   [ "PLUS    ", "  5" ], [ "NOTHING ", " 25" ]
+bike_toggle         =   [ "PLUS ", "  5" ], [ "PAUSE", " 25" ]
 
 ## WAITS ##                     
-wait_instant        = [ [ "NOTHING ", "  1" ] ]
-wait_fast           = [ [ "NOTHING ", " 25" ] ]
-wait_medium         = [ [ "NOTHING ", " 50" ] ]
-wait_slow           = [ [ "NOTHING ", "100" ] ]
-wait_vslow          = [ [ "NOTHING ", "200" ] ]
+wait_instant        = [ [ "PAUSE", "  1" ] ]
+wait_fast           = [ [ "PAUSE", " 25" ] ]
+wait_medium         = [ [ "PAUSE", " 50" ] ]
+wait_slow           = [ [ "PAUSE", "100" ] ]
+wait_vslow          = [ [ "PAUSE", "200" ] ]
 
 ### SUBSCRIPTS ### (things you'd never do solo, generally)
-## BOXES AND POKEMON ##
+## MENUS, BOXES, AND POKEMON ##
+
+# Save (15s)
+save                = flatten([ x_slow,
+                                r_slow,
+                                a_vfast,
+                                wait_slow ])
 
 # Open up the menu, pokemon, show box view
 pokemon_boxes       = flatten([ x_slow,
@@ -271,39 +278,56 @@ place_hatched_eggs  = flatten([ pokemon_boxes,
 # Activates the controller
 setup_controller    = flatten([ wait_vslow,
 
-                                triggers_vfast,
+                                TRIGS_vfast,
                                 wait_slow,
-                                triggers_vfast,
-                                wait_slow,
-                                wait_instant,
-                                wait_instant,
-                                wait_instant,
-                                wait_instant ])
+                                TRIGS_vfast,
+                                wait_slow ])
                         
 ### SCRIPTS ### (scripts that accomplish a task worth accomplishing, or needed to do so)
-# Get an egg ()
+# Get an egg (33s, 1765 duration)
 get_egg             = flatten([ walk_for_new_egg,
                                 talk_to_lady ])
-                                
+    
+# Hatch 5 eggs                            
 hatch_5_eggs        = flatten([ grab_eggs_to_hatch,
                                 bike_to_hatch_eggs,
                                 place_hatched_eggs ])
                                 
 rows = 2 # rows to hatch TODO make CLI changable also TODO move this logic
 
-if rows == 1:                           
-   reorganize_boxes = flatten([ shuffle_row ])
+shuffle_boxes_1 = flatten([ shuffle_row ])
 
-if rows == 2:
-   reorganize_boxes = flatten([ shuffle_row,
+shuffle_boxes_2 = flatten([ shuffle_row,
                                 shuffle_change_row,
                                 shuffle_row,
                                 up_vfast ]) # Back up to the first row, last box
+
+shuffle_boxes_3 = flatten([ shuffle_row,
+                                shuffle_change_row,
+                                shuffle_row,
+                                shuffle_change_row,
+                                shuffle_row,
+                                up_vfast,
+                                up_vfast ]) # Back up to the first row, last box
                                 
 # Move down a bunch of boxes so we can keep looping past one box (time)
-reorganize_boxes    = flatten([ pokemon_boxes,
+reorganize_boxes_1    = flatten([ pokemon_boxes,
                                 box_view,
-                                reorganize_boxes, # This is the actual shuffling, defined above
+                                shuffle_boxes_1, # This is the actual shuffling, defined above
+                                right_vfast, # Go to the starting box
+                                a_vfast,     # Select box
+                                exit_menu ])
+                                
+reorganize_boxes_2    = flatten([ pokemon_boxes,
+                                box_view,
+                                shuffle_boxes_2, # This is the actual shuffling, defined above
+                                right_vfast, # Go to the starting box
+                                a_vfast,     # Select box
+                                exit_menu ])
+                                
+reorganize_boxes_3    = flatten([ pokemon_boxes,
+                                box_view,
+                                shuffle_boxes_3, # This is the actual shuffling, defined above
                                 right_vfast, # Go to the starting box
                                 a_vfast,     # Select box
                                 exit_menu ])
@@ -345,31 +369,41 @@ get_eggs_box     =   get_egg*30
 
 # Hatch a full box of eggs (time)
 hatch_eggs_box   =   hatch_5_eggs*6 
-hatch_eggs_box  +=   reorganize_boxes
+
+rows = 2
+if rows == 1:
+    hatch_eggs_box  +=   reorganize_boxes_1
+elif rows == 2:
+    hatch_eggs_box  +=   reorganize_boxes_2
+elif rows == 3:
+    hatch_eggs_box  +=   reorganize_boxes_3
                         
-mode = "TEST" # TODO make CLI changable
+mode = "HATCHEGGS" # TODO make CLI changable
                     
-if mode == "GETEGGS": # (time)
-    scripts = flatten([ setup_controller,
+if mode == "GETEGGS": # (~16m30s/box)
+    script = flatten([ setup_controller,
                         get_egg ])
 elif mode == "HATCHEGGS": # (time)
-    scripts = flatten([ setup_controller,
+    script = flatten([ setup_controller,
                         hatch_eggs_box ])
 elif mode == "GETHATCHEGGS": # (time)
-    scripts = flatten([ setup_controller,
+    script = flatten([ setup_controller,
                         get_eggs_box,
                         get_to_hatch,
                         hatch_eggs_box,
-                        hatch_to_get ])
+                        hatch_to_get,
+                        save ])
 elif mode == "TEST": # Comment or uncomment out certain parts to make custom scripts
-    scripts = flatten([ setup_controller,
-                        #get_egg,
-                        get_to_hatch,
+    script = flatten([ setup_controller,
+                        #save,
+                        get_egg,
+                        #get_to_hatch,
                         #grab_eggs_to_hatch,
                         #bike_to_hatch_eggs,
                         #place_hatched_eggs,
-                        reorganize_boxes,
-                        hatch_to_get ])
+                        #reorganize_boxes,
+                        #hatch_to_get 
+                    ])
 
 # Making our script file, Tasks.c
 script_file = open('./Script.c', 'w') # Open the file we plan on writing this list to
@@ -377,7 +411,9 @@ script_file = open('./Script.c', 'w') # Open the file we plan on writing this li
 script_file.write("#include \"Script.h\"\n\n") # Title in a comment at the top. Habit
 script_file.write("command script[] = {\n")    # Start our list
 
-for command in scripts:
+
+for command in script:
     write_command(command, script_file) # Put script in, formatted for c
+    
     
 script_file.write("};") # End list
