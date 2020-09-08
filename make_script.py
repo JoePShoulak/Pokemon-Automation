@@ -1,3 +1,5 @@
+import os, sys
+
 def write_command(command, file_to_write):
     action      = command[0]
     duration    = command[1]
@@ -370,23 +372,37 @@ get_eggs_box     =   get_egg*30
 # Hatch a full box of eggs (time)
 hatch_eggs_box   =   hatch_5_eggs*6 
 
-rows = 2
+print ""
+
+try:
+    mode = sys.argv[1].upper()
+except:
+    print ">>! No mode selected. Exiting...\n"
+    sys.exit()
+    
+if "HATCH" in mode:
+    try:
+        rows = int(sys.argv[2])
+    except:
+        print ">>! Number of rows not chosen. Defaulting to 1...\n"
+
 if rows == 1:
     hatch_eggs_box  +=   reorganize_boxes_1
 elif rows == 2:
     hatch_eggs_box  +=   reorganize_boxes_2
 elif rows == 3:
     hatch_eggs_box  +=   reorganize_boxes_3
-                        
-mode = "HATCHEGGS" # TODO make CLI changable
-                    
-if mode == "GETEGGS": # (~16m30s/box)
+                                            
+if mode == "GET": # (~16m30s/box)
+    print ">>> Assembling script to get eggs... (~16m30s/box, ~2h12m/row)"
     script = flatten([ setup_controller,
                         get_egg ])
-elif mode == "HATCHEGGS": # (time)
+elif mode == "HATCH": # (~37m30s/box)
+    print ">>> Assembling script to hatch %d row(s) of eggs... (~37m30s/box, ~5h/row)" % rows
     script = flatten([ setup_controller,
                         hatch_eggs_box ])
-elif mode == "GETHATCHEGGS": # (time)
+elif mode == "GETANDHATCH": # (time)
+    print ">>> Assembling script to hatch eggs... ()"
     script = flatten([ setup_controller,
                         get_eggs_box,
                         get_to_hatch,
@@ -394,15 +410,16 @@ elif mode == "GETHATCHEGGS": # (time)
                         hatch_to_get,
                         save ])
 elif mode == "TEST": # Comment or uncomment out certain parts to make custom scripts
+    print ">>> Assembling test script..."
     script = flatten([ setup_controller,
-                        #save,
-                        get_egg,
-                        #get_to_hatch,
+                        #get_egg,
+                        get_to_hatch,
                         #grab_eggs_to_hatch,
                         #bike_to_hatch_eggs,
                         #place_hatched_eggs,
                         #reorganize_boxes,
-                        #hatch_to_get 
+                        save,
+                        hatch_to_get 
                     ])
 
 # Making our script file, Tasks.c
@@ -411,9 +428,14 @@ script_file = open('./Script.c', 'w') # Open the file we plan on writing this li
 script_file.write("#include \"Script.h\"\n\n") # Title in a comment at the top. Habit
 script_file.write("command script[] = {\n")    # Start our list
 
+print ">>> Writing Script to Script.c..."
 
 for command in script:
     write_command(command, script_file) # Put script in, formatted for c
     
-    
 script_file.write("};") # End list
+
+script_file.close()
+
+print ">>> Compiling C code...\n"
+os.system('make')
