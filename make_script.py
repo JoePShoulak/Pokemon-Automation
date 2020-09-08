@@ -130,7 +130,8 @@ shuffle_change_row = flatten([ y_vfast,     # Start a swap
 # Exit out of the menu back to the overworld
 exit_menu           = flatten([ b_slow,
                                 b_slow,
-                                b_vslow ])
+                                b_slow,
+                                b_slow ])
 
 # Enter multiselect mode so we can manipulate many pokemon
 multiselect         = flatten([ y_vfast,
@@ -305,8 +306,7 @@ reorganize_boxes    = flatten([ pokemon_boxes,
                                 reorganize_boxes, # This is the actual shuffling, defined above
                                 right_vfast, # Go to the starting box
                                 a_vfast,     # Select box
-                                exit_menu,
-                                wait_vslow ])
+                                exit_menu ])
 
 # Get us prepared to hatch eggs after getting them (time)
 get_to_hatch        = flatten([ pokemon_boxes,
