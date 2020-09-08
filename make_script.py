@@ -1,5 +1,7 @@
-def write_command(f, cmd, dur):
-    f.write("\t{ " + cmd + ", " + dur + "},\n")
+def write_command(command, file_to_write):
+    action      = command[0]
+    duration    = command[1]
+    file_to_write.write("\t{ " + action + ", " + duration + "},\n")
     
 def flatten(list):
     return [val for sublist in list for val in sublist] # Black magic
@@ -210,24 +212,8 @@ walk_for_new_egg    = flatten([ walk_down_a_bit,
                                 walk_left_for_egg,
 
                                 walk_up ])
-                        
-## MISC ##
-# Activates the controller
-setup_controller    = flatten([ wait_vslow,
+                                
 
-                                triggers_vfast,
-                                wait_slow,
-                                triggers_vfast,
-                                wait_slow,
-                                wait_instant,
-                                wait_instant,
-                                wait_instant,
-                                wait_instant ])
-                        
-### SCRIPTS ### (scripts that accomplish a task worth accomplishing, or needed to do so)
-# Get an egg ()
-get_egg             = flatten([ walk_for_new_egg,
-                                talk_to_lady ])
 
 # Grab eggs from boxes that we wants to hatch (time)
 grab_eggs_to_hatch  = flatten([ pokemon_boxes,
@@ -279,11 +265,33 @@ place_hatched_eggs  = flatten([ pokemon_boxes,
                                 grab_party,
                                 place_in_far_column,
                                 exit_menu ])
+                        
+## MISC ##
+# Activates the controller
+setup_controller    = flatten([ wait_vslow,
+
+                                triggers_vfast,
+                                wait_slow,
+                                triggers_vfast,
+                                wait_slow,
+                                wait_instant,
+                                wait_instant,
+                                wait_instant,
+                                wait_instant ])
+                        
+### SCRIPTS ### (scripts that accomplish a task worth accomplishing, or needed to do so)
+# Get an egg ()
+get_egg             = flatten([ walk_for_new_egg,
+                                talk_to_lady ])
+                                
+hatch_5_eggs        = flatten([ grab_eggs_to_hatch,
+                                bike_to_hatch_eggs,
+                                place_hatched_eggs ])
                                 
 rows = 1 # rows to hatch TODO make CLI changable
 
 if rows == 1:                           
-   reorganize_boxes = flatten([ shuffle_row ])
+   reorganize_boxes  = flatten([ shuffle_row ])
 
 if rows == 2:
    reorganize_boxes = flatten([ shuffle_row,
@@ -332,13 +340,13 @@ hatch_to_get        = flatten([ pokemon_boxes,
                                 walk_up_a_lot ])
                                 
 # Get a full(ish) box off eggs ()
-get_eggs_box     =   get_egg*33
+get_eggs_box     =   get_egg*36
 
 # Hatch a full box of eggs (time)
-hatch_eggs_box   = ( grab_eggs_to_hatch + bike_to_hatch_eggs + place_hatched_eggs )*6 
+hatch_eggs_box   =   hatch_5_eggs*6 
 hatch_eggs_box  +=   reorganize_boxes
                         
-mode = "HATCHEGGS" # TODO make CLI changable
+mode = "GETHATCHEGGS" # TODO make CLI changable
                     
 if mode == "GETEGGS": # (time)
     scripts = flatten([ setup_controller,
@@ -366,9 +374,9 @@ elif mode == "TEST": # Comment or uncomment out certain parts to make custom scr
 script_file = open('./Script.c', 'w') # Open the file we plan on writing this list to
 
 script_file.write("#include \"Script.h\"\n\n") # Title in a comment at the top. Habit
-script_file.write("command script[] = {\n")   # Start our list
+script_file.write("command script[] = {\n")    # Start our list
 
 for command in scripts:
-    write_command(script_file, command[0], command[1]) # Put script in, formatted for c
+    write_command(command, script_file) # Put script in, formatted for c
     
 script_file.write("};") # End list
