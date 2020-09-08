@@ -128,7 +128,7 @@ shuffle_change_row = flatten([ y_vfast,     # Start a swap
 # Exit out of the menu back to the overworld
 exit_menu           = flatten([ b_slow,
                                 b_slow,
-                                b_slow ])
+                                b_vslow ])
 
 # Enter multiselect mode so we can manipulate many pokemon
 multiselect         = flatten([ y_vfast,
@@ -338,7 +338,7 @@ get_eggs_box     =   get_egg*33
 hatch_eggs_box   = ( grab_eggs_to_hatch + bike_to_hatch_eggs + place_hatched_eggs )*6 
 hatch_eggs_box  +=   reorganize_boxes
                         
-mode = "GETHATCHEGGS" # TODO make CLI changable
+mode = "HATCHEGGS" # TODO make CLI changable
                     
 if mode == "GETEGGS": # (time)
     scripts = flatten([ setup_controller,
@@ -354,11 +354,11 @@ elif mode == "GETHATCHEGGS": # (time)
                         hatch_to_get ])
 elif mode == "TEST": # Comment or uncomment out certain parts to make custom scripts
     scripts = flatten([ setup_controller,
-                        # get_egg,
-                        # get_to_hatch,
-                        # grab_eggs_to_hatch,
-                        # bike_to_hatch_eggs,
-                        # place_hatched_eggs,
+                        #get_egg,
+                        get_to_hatch,
+                        #grab_eggs_to_hatch,
+                        #bike_to_hatch_eggs,
+                        #place_hatched_eggs,
                         reorganize_boxes,
                         hatch_to_get ])
 
