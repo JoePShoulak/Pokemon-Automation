@@ -305,7 +305,8 @@ reorganize_boxes    = flatten([ pokemon_boxes,
                                 reorganize_boxes, # This is the actual shuffling, defined above
                                 right_vfast, # Go to the starting box
                                 a_vfast,     # Select box
-                                exit_menu ])
+                                exit_menu,
+                                wait_vslow ])
 
 # Get us prepared to hatch eggs after getting them (time)
 get_to_hatch        = flatten([ pokemon_boxes,
@@ -346,7 +347,7 @@ get_eggs_box     =   get_egg*30
 hatch_eggs_box   =   hatch_5_eggs*6 
 hatch_eggs_box  +=   reorganize_boxes
                         
-mode = "GETHATCHEGGS" # TODO make CLI changable
+mode = "TEST" # TODO make CLI changable
                     
 if mode == "GETEGGS": # (time)
     scripts = flatten([ setup_controller,
