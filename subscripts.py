@@ -142,7 +142,7 @@ shuffle_row         = flatten([ shift_box_right,
                                 shift_box_right ])
                                 
 # Shuffle the last box of the current row with the first box of the next row
-shuffle_change_row = flatten([ y_vfast,     # Start a swap
+shuffle_change_row = flatten([  y_vfast,     # Start a swap
                                 right_vfast, # First column
                                 down_vfast,  # Down a row to the first box of row 2
                                 y_vfast ])     # Finish swap
