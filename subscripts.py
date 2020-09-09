@@ -289,16 +289,14 @@ hatch_5_eggs        = flatten([ grab_eggs_to_hatch,
                                 bike_to_hatch_eggs,
                                 place_hatched_eggs ])
                                 
-rows = 2 # rows to hatch TODO make CLI changable also TODO move this logic
+shuffle_boxes_1     = flatten([ shuffle_row ])
 
-shuffle_boxes_1 = flatten([ shuffle_row ])
-
-shuffle_boxes_2 = flatten([ shuffle_row,
+shuffle_boxes_2     = flatten([ shuffle_row,
                                 shuffle_change_row,
                                 shuffle_row,
                                 up_vfast ]) # Back up to the first row, last box
 
-shuffle_boxes_3 = flatten([ shuffle_row,
+shuffle_boxes_3     = flatten([ shuffle_row,
                                 shuffle_change_row,
                                 shuffle_row,
                                 shuffle_change_row,
@@ -307,21 +305,21 @@ shuffle_boxes_3 = flatten([ shuffle_row,
                                 up_vfast ]) # Back up to the first row, last box
                                 
 # Move down a bunch of boxes so we can keep looping past one box (time)
-reorganize_boxes_1    = flatten([ pokemon_boxes,
+reorganize_boxes_1  = flatten([ pokemon_boxes,
                                 box_view,
                                 shuffle_boxes_1, # This is the actual shuffling, defined above
                                 right_vfast, # Go to the starting box
                                 a_vfast,     # Select box
                                 exit_menu ])
                                 
-reorganize_boxes_2    = flatten([ pokemon_boxes,
+reorganize_boxes_2  = flatten([ pokemon_boxes,
                                 box_view,
                                 shuffle_boxes_2, # This is the actual shuffling, defined above
                                 right_vfast, # Go to the starting box
                                 a_vfast,     # Select box
                                 exit_menu ])
                                 
-reorganize_boxes_3    = flatten([ pokemon_boxes,
+reorganize_boxes_3  = flatten([ pokemon_boxes,
                                 box_view,
                                 shuffle_boxes_3, # This is the actual shuffling, defined above
                                 right_vfast, # Go to the starting box
