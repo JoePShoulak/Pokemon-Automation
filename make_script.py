@@ -68,7 +68,7 @@ get_and_hatch_script    = subscripts.flatten([  setup_controller,
                                                 hatch_to_get,
                                                 save ])
                                                 
-get_and_hatch1_script    = subscripts.flatten([  setup_controller,
+get_and_hatch1_script    = subscripts.flatten([ setup_controller,
                                                 get_eggs_box,
                                                 get_to_hatch,
                                                 hatch_eggs_box,
@@ -91,7 +91,7 @@ test_script             = subscripts.flatten([  setup_controller,
 script = {  "GET"          : get_script,
             "HATCH"        : hatch_script,
             "GETANDHATCH"  : get_and_hatch_script,
-            "GETANDHATCH1" : get_and_hatch1_script,
+        #    "GETANDHATCH1" : get_and_hatch1_script, Fix
             "TEST"         : test_script  }[mode]
 
 # Making our script file, Tasks.c
