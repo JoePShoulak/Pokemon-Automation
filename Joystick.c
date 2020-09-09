@@ -6,12 +6,14 @@
 
 #include "Script.c"
 
+int run_count = 0;
+
 #define LED_ON		(PORTD |= (1<<6))
 #define LED_OFF		(PORTD &= ~(1<<6))
 
 // Main entry point.
-int main(void) {
-	
+int main(void) {	
+	LED_ON;
 	// We'll start by performing hardware and peripheral setup.
 	SetupHardware();
 	// We'll then enable global interrupts for our use.
@@ -19,13 +21,10 @@ int main(void) {
 	// Once that's done, we'll enter an infinite loop.
 	for (;;)
 	{
-		LED_ON;
 		// We need to run our task to process and deliver data for our IN and OUT endpoints.
 		HID_Task();
 		// We also need to run the main USB management task.
 		USB_USBTask();
-		LED_OFF;
-
 	}
 }
 
@@ -273,6 +272,15 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 			{
 
 				// state = CLEANUP;
+				
+				if (run_limit > 0){
+					run_count++;
+				}
+				
+				if (run_count == run_limit) {
+					LED_OFF;
+					exit(0);
+				}
 
 				bufindex = 7;
 				duration_count = 0;

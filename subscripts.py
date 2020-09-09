@@ -281,7 +281,7 @@ setup_controller    = flatten([ wait_vslow,
                         
 ### SCRIPTS ### (scripts that accomplish a task worth accomplishing, or needed to do so)
 # Get an egg (33s, 1765 duration)
-get_egg             = flatten([ walk_for_new_egg,
+get_egg             = flatten([ walk_for_new_egg, # TODO find out what happens if you try grabbing an egg with full boxes
                                 talk_to_lady ])
     
 # Hatch 5 eggs                            

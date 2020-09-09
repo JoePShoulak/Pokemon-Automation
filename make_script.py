@@ -55,14 +55,18 @@ if "HATCH" in mode:
         hatch_eggs_box  +=   reorganize_boxes_3
                                             
 if mode == "GET": # (~16m30s/box)
+    run_limit = -1 # This will cause the script to loop forever
     print ">>> Assembling script to get eggs... (~16m30s/box, ~2h12m/row)"
     script = subscripts.flatten([   setup_controller,
                                     get_egg ])
 elif mode == "HATCH": # (~37m30s/box)
+    run_limit = 8*rows
     print ">>> Assembling script to hatch %d row(s) of eggs... (~37m30s/box, ~5h/row)" % rows
     script = subscripts.flatten([   setup_controller,
-                                    hatch_eggs_box ])
+                                    hatch_eggs_box,
+                                    save ])
 elif mode == "GETANDHATCH": # (time)
+    run_limit = 8*rows
     print ">>> Assembling script to hatch eggs... (~55m/box, ~7h20m/row)"
     script = subscripts.flatten([   setup_controller,
                                     get_eggs_box,
@@ -71,14 +75,17 @@ elif mode == "GETANDHATCH": # (time)
                                     hatch_to_get,
                                     save ])
 elif mode == "TEST": # Comment or uncomment out certain parts to make custom scripts
+    run_limit = 2
     print ">>> Assembling test script..."
     script = subscripts.flatten([   setup_controller,
                                     #get_egg,
+                                    get_eggs_box,
                                     get_to_hatch,
                                     #grab_eggs_to_hatch,
                                     #bike_to_hatch_eggs,
                                     #place_hatched_eggs,
                                     #reorganize_boxes,
+                                    hatch_eggs_box,
                                     hatch_to_get,
                                     save
                                     ])
@@ -87,6 +94,7 @@ elif mode == "TEST": # Comment or uncomment out certain parts to make custom scr
 script_file = open('./Script.c', 'w') # Open the file we plan on writing this list to
 
 script_file.write("#include \"Script.h\"\n\n") # Title in a comment at the top. Habit
+script_file.write("int run_limit = %d;\n\n" % run_limit) # Pass our run_limit over to C
 script_file.write("command script[] = {\n")    # Start our list
 
 print ">>> Writing Script to Script.c..."
