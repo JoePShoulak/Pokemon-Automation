@@ -86,8 +86,8 @@ script = {  "GET"         : get_script,
 # Making our script file, Tasks.c
 script_file = open('./Script.c', 'w') # Open the file we plan on writing this list to
 
-subscripts.pass_var_to_c("int", "run_limit", run_limit, script_file)
-subscripts.pass_list_to_c("command", "script", script, script_file)
+subscripts.pass_var_to_c(   "int",      "run_limit",    run_limit,  script_file )
+subscripts.pass_list_to_c(  "command",  "script",       script,     script_file )
 
 script_file.close()
 
