@@ -31,7 +31,7 @@ In order to run HATCH, first you want to make sure your party is empty so we can
 ### GETANDHATCH [ROWS]
 This one is a little bit trickier. Since we're going to be generating a box of eggs each time before we hatch a box, we want all of the rows we're planning on operating on to be **empty**. We also want to be able to fill and empty our party so we're able to switch from grabbing eggs to hatching them and back. The way to do this is, again, make sure the top _n_ rows where _n_ is what we gave to the CLI are **empty** but the **last box** which should be the bottom right box should be **full** of Pokemon. Once you've hatched enough "keeper" pokemon, you can put them there which works out nicely. You will then open your Pokemon boxes to the upper left box (box 1) and hit _L_ to tab over to the last (and full) box. Grab the first column, and place them in your party. From now on, the script will handle moving these 5 pokemon for us. Finally and importantly, **make sure you end on box 1, row 1, not the last (and full) box**. 
 
-### GETANDHATCH1
+### GETANDHATCH1 (coming soon)
 Same as GETANDHATCH except it will only do one box. This mode is recommended if you're starting with a low-IV Pokemon, so you can generate a 5IV or 6IV without having to run and interrupt a longer script before restarting with that better 'mon. 
 
 ### TEST [RUN_LIMIT]
