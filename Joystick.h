@@ -53,10 +53,6 @@
 
 #include "Descriptors.h"
 
-typedef enum {
-	GET_EGGS,
-} scripts;
-
 // Declare Buttons
 typedef enum {
 	// Buttons
