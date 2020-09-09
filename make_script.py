@@ -21,7 +21,7 @@ get_to_hatch        = subscripts.get("get_to_hatch")
 hatch_to_get        = subscripts.get("hatch_to_get")
 
 # Make a list of our org_boxes so we can select. Empty first index so 1, 2, 3 matches index
-reorganize_boxes    = ["", reorganize_boxes_1, reorganize_boxes_2, reorganize_boxes_3]
+reorganize_boxes    = [[], reorganize_boxes_1, reorganize_boxes_2, reorganize_boxes_3]
    
 # Here we actually start doing things
 run_limit   = -1    # Unless otherwise specified, script runs indefinitely
@@ -38,12 +38,15 @@ except:
 
 # If we're hatching, we have to tweak one subscript before we finish defining our scripts
 if "HATCH" in mode:
-    try:
-        rows = int(sys.argv[2])
-        run_limit = 8*rows
-        hatch_eggs_box += reorganize_boxes[rows]
-    except:
-        pass
+    if "1" in mode:
+        run_limit = 1
+    else:
+        try:
+            rows = int(sys.argv[2])
+            run_limit = 8*rows
+            hatch_eggs_box += reorganize_boxes[rows]
+        except:
+            pass
 elif mode == "TEST": # If we're testing, let's grab the run_limit real quick
     try:
         run_limit = int(sys.argv[2])
@@ -64,6 +67,13 @@ get_and_hatch_script    = subscripts.flatten([  setup_controller,
                                                 hatch_eggs_box,
                                                 hatch_to_get,
                                                 save ])
+                                                
+get_and_hatch1_script    = subscripts.flatten([  setup_controller,
+                                                get_eggs_box,
+                                                get_to_hatch,
+                                                hatch_eggs_box,
+                                                hatch_to_get,
+                                                save ])
                                     
 test_script             = subscripts.flatten([  setup_controller,
                                                 #get_egg,
@@ -78,10 +88,11 @@ test_script             = subscripts.flatten([  setup_controller,
                                                 save
                                                 ])
 
-script = {  "GET"         : get_script,
-            "HATCH"       : hatch_script,
-            "GETANDHATCH" : get_and_hatch_script,
-            "TEST"        : test_script  }[mode]
+script = {  "GET"          : get_script,
+            "HATCH"        : hatch_script,
+            "GETANDHATCH"  : get_and_hatch_script,
+            "GETANDHATCH1" : get_and_hatch_script1,
+            "TEST"         : test_script  }[mode]
 
 # Making our script file, Tasks.c
 script_file = open('./Script.c', 'w') # Open the file we plan on writing this list to
