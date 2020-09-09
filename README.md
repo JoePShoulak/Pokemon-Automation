@@ -33,3 +33,7 @@ This one is a little bit trickier. Since we're going to be generating a box of e
 
 ### TEST
 This is going to be whatever you make it. Starting and ending positions depend entirely on what subscripts you choose to include. There are still only two fixed positions we use: right next to the lady, and in the nook past the end of the bridge. One of these is almost certainly where you want to be standing when you run this script. 
+
+## Thanks!
+
+If there are any questions or feedback, especially if anything is unclear, plese let me know and I'll update it as soon as I can!
