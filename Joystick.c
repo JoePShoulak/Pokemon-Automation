@@ -175,10 +175,10 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 
 
 			ReportData->Button = 0;
-			ReportData->LX = STICK_CENTER;
-			ReportData->LY = STICK_CENTER;
-			ReportData->RX = STICK_CENTER;
-			ReportData->RY = STICK_CENTER;
+			ReportData->LX  = STICK_CENTER;
+			ReportData->LY  = STICK_CENTER;
+			ReportData->RX  = STICK_CENTER;
+			ReportData->RY  = STICK_CENTER;
 			ReportData->HAT = HAT_CENTER;
 
 
@@ -190,7 +190,6 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 			break;
 
 		case PROCESS:
-
 			switch (script[bufindex].button) // TODO CHECK THIS OUT
 			{
 				// Buttons
@@ -277,10 +276,10 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 					break;
 
 				default:
-					ReportData->LX = STICK_CENTER;
-					ReportData->LY = STICK_CENTER;
-					ReportData->RX = STICK_CENTER;
-					ReportData->RY = STICK_CENTER;
+					ReportData->LX  = STICK_CENTER;
+					ReportData->LY  = STICK_CENTER;
+					ReportData->RX  = STICK_CENTER;
+					ReportData->RY  = STICK_CENTER;
 					ReportData->HAT = HAT_CENTER;
 					break;
 			}
@@ -308,15 +307,15 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 					exit(0);
 				}
 
-				bufindex = 7;
+				bufindex = 7; // This skips setup_controller every time but the first
 				duration_count = 0;
 
 				state = BREATHE;
 
-				ReportData->LX = STICK_CENTER;
-				ReportData->LY = STICK_CENTER;
-				ReportData->RX = STICK_CENTER;
-				ReportData->RY = STICK_CENTER;
+				ReportData->LX  = STICK_CENTER;
+				ReportData->LY  = STICK_CENTER;
+				ReportData->RX  = STICK_CENTER;
+				ReportData->RY  = STICK_CENTER;
 				ReportData->HAT = HAT_CENTER;
 
 			}
