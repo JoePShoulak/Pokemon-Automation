@@ -1,5 +1,23 @@
+# Turns a list of lists into a list
 def flatten(list):
     return [val for sublist in list for val in sublist] # Black magic
+
+# Write a command formatted for our C file
+def write_command(command, file_to_write):
+    action      = command[0]
+    duration    = command[1]
+    file_to_write.write("\t{ " + action + ", " + duration + "},\n")
+    
+def pass_var_to_c(v_type, name, value, file_to_write):
+    file_to_write.write("%s %s = %s;\n\n" % (v_type, name, value)) # Pass our run_limit over to C
+    
+def pass_list_to_c(l_type, name, list_to_send, file_to_write):
+    file_to_write.write("%s %s[] = {\n" % (l_type, name))    # Start our list
+
+    for command in list_to_send:
+        write_command(command, file_to_write) # Put script in, formatted for c
+    
+    file_to_write.write("};") # End list
      
 ### COMMANDS ### (raw individual actions)
 ## BUTTONS ##
@@ -358,10 +376,10 @@ hatch_to_get        = flatten([ pokemon_boxes,
                                 walk_down,
                                 walk_up_a_lot ])
                                 
-# Get a full(ish) box off eggs ()
-get_eggs_box     =   get_egg*30
+# Get a full(ish) box off eggs
+get_eggs_box     =   get_egg*40
 
-# Hatch a full box of eggs (time)
+# Hatch a full box of eggs
 hatch_eggs_box   =   hatch_5_eggs*6 
 
 subscripts = {

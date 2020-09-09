@@ -90,6 +90,7 @@ typedef enum {
 	RIGHT,
 	
 	// Custom Combos
+	PAUSE,  // Do nothing
 	TRIGS,	// L and R
 } Buttons_t;
 
