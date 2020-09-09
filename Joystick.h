@@ -59,21 +59,38 @@ typedef enum {
 
 // Declare Buttons
 typedef enum {
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT,
-	X,
+	// Buttons
 	Y,
-	A,
 	B,
+	A,
+	X,
+	
+	// Bumpers and Triggers
 	L,
 	R,
-	PAUSE,
-	HOME,
-	PLUS,
+	ZL,
+	ZR,
+	
+	// Plus / Minus
 	MINUS,
-	TRIGS
+	PLUS,
+	
+	// Left and Right Stick Click
+	LCLK,
+	RCLK,
+	
+	// Home / Capture
+	HOME,
+	CAPTURE,
+	
+	// Left Stick Directions
+	UP,
+	LEFT,
+	DOWN,
+	RIGHT,
+	
+	// Custom Combos
+	TRIGS,	// L and R
 } Buttons_t;
 
 // Declare Object...?
@@ -89,14 +106,18 @@ typedef enum {
 	SWITCH_B       = 0x02,
 	SWITCH_A       = 0x04,
 	SWITCH_X       = 0x08,
+	
 	SWITCH_L       = 0x10,
 	SWITCH_R       = 0x20,
 	SWITCH_ZL      = 0x40,
 	SWITCH_ZR      = 0x80,
+	
 	SWITCH_MINUS   = 0x100,
 	SWITCH_PLUS    = 0x200,
+	
 	SWITCH_LCLICK  = 0x400,
 	SWITCH_RCLICK  = 0x800,
+	
 	SWITCH_HOME    = 0x1000, 
 	SWITCH_CAPTURE = 0x2000,
 } JoystickButtons_t;

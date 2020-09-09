@@ -193,7 +193,68 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 
 			switch (script[bufindex].button) // TODO CHECK THIS OUT
 			{
+				// Buttons
+				case Y:
+					ReportData->Button |= SWITCH_Y;
+					break;
 
+				case B:
+					ReportData->Button |= SWITCH_B;
+					break;
+
+				case A:
+					ReportData->Button |= SWITCH_A;
+					break;
+
+				case X:
+					ReportData->Button |= SWITCH_X;
+					break;
+
+				// Bumpers and Triggers
+				case L:
+					ReportData->Button |= SWITCH_L;
+					break;
+
+				case R:
+					ReportData->Button |= SWITCH_R;
+					break;
+					
+				case ZL:
+					ReportData->Button |= SWITCH_ZL;
+					break;
+
+				case ZR:
+					ReportData->Button |= SWITCH_ZR;
+					break;
+
+				// Minus / Plus
+				case MINUS:
+					ReportData->Button |= SWITCH_MINUS;
+					break;
+
+				case PLUS:
+					ReportData->Button |= SWITCH_PLUS;
+					break;
+					
+				// Left and Right Stick Click
+				case LCLK:
+					ReportData->Button |= SWITCH_LCLICK;
+					break;
+				case RCLK:
+					ReportData->Button |= SWITCH_RCLICK;
+					break;
+					
+				// Home / Capture
+
+				case HOME:
+					ReportData->Button |= SWITCH_HOME;
+					break;
+
+				case CAPTURE:
+					ReportData->Button |= SWITCH_CAPTURE;
+					break;
+					
+				// Left Stick Directions
 				case UP:
 					ReportData->LY = STICK_MIN;				
 					break;
@@ -209,43 +270,8 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 				case RIGHT:
 					ReportData->LX = STICK_MAX;				
 					break;
-
-				case PLUS:
-					ReportData->Button |= SWITCH_PLUS;
-					break;
-
-				case MINUS:
-					ReportData->Button |= SWITCH_MINUS;
-					break;
-
-				case A:
-					ReportData->Button |= SWITCH_A;
-					break;
-
-				case B:
-					ReportData->Button |= SWITCH_B;
-					break;
-
-				case X:
-					ReportData->Button |= SWITCH_X;
-					break;
-
-				case Y:
-					ReportData->Button |= SWITCH_Y;
-					break;
-
-				case R:
-					ReportData->Button |= SWITCH_R;
-					break;
-
-				case L:
-					ReportData->Button |= SWITCH_L;
-					break;
-
-				case HOME:
-					ReportData->Button |= SWITCH_HOME;
-					break;
-
+					
+				// Custom Combos
 				case TRIGS:
 					ReportData->Button |= SWITCH_L | SWITCH_R;
 					break;
