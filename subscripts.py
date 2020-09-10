@@ -111,6 +111,8 @@ wait_vslow          = [ [ "PAUSE", "200" ] ]
 ### SUBSCRIPTS ### (things you'd never do solo, generally)
 ## MENUS, BOXES, AND POKEMON ##
 
+mash_a              = a_vfast
+
 # Save (15s)
 save                = flatten([ x_slow,
                                 r_slow,
@@ -395,7 +397,8 @@ subscripts = {
     "reorganize_boxes_2":   reorganize_boxes_2,
     "reorganize_boxes_3":   reorganize_boxes_3,
     "hatch_to_get":         hatch_to_get,
-    "save":                 save
+    "save":                 save,
+    "mash_a":               mash_a
 }
 
 def get(s):

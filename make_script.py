@@ -5,6 +5,8 @@ import subscripts
 setup_controller    = subscripts.get("setup_controller")
 save                = subscripts.get("save")
 
+mash_a              = subscripts.get("mash_a")
+
 get_egg             = subscripts.get("get_egg")
 get_eggs_box        = subscripts.get("get_eggs_box")
 
@@ -87,9 +89,13 @@ test_script             = subscripts.flatten([  setup_controller,
                                                 #hatch_to_get,
                                                 save
                                                 ])
+                                                
+mash_a_script           = subscripts.flatten([  setup_controller,
+                                                mash_a ])
 
 script = {  "GET"          : get_script,
             "HATCH"        : hatch_script,
+            "MASHA"        : mash_a_script,
             "GETANDHATCH"  : get_and_hatch_script,
         #    "GETANDHATCH1" : get_and_hatch1_script, Fix
             "TEST"         : test_script  }[mode]
